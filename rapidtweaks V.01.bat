@@ -1,6 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
-title rapidtweaks tweaking utility
+title RAPIDTWEAKS :: EXTREME EDITION
+mode con cols=96 lines=34 >nul 2>&1
 
 :: enable ansi/vt100 colors in windows console
 reg add "hkcu\console" /v "virtualterminallevel" /t reg_dword /d 1 /f >nul 2>&1
@@ -14,7 +15,7 @@ if %errorlevel% neq 0 (
 )
 
 :: ansi color codes
-set "esc="
+for /f %%e in ('echo prompt $E^| cmd') do set "esc=%%e"
 set "magenta=%esc%[95m"
 set "cyan=%esc%[96m"
 set "white=%esc%[97m"
@@ -34,29 +35,29 @@ goto :main_menu
 :main_menu
 cls
 echo.
-echo %magenta%%bold%    ██████╗  █████╗ ██████╗ ██╗██████╗ ████████╗██╗    ██╗███████╗ █████╗ ██╗  ██╗███████╗%reset%
-echo %magenta%%bold%    ██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗╚══██╔══╝██║    ██║██╔════╝██╔══██╗██║ ██╔╝██╔════╝%reset%
-echo %magenta%%bold%    ██████╔╝███████║██████╔╝██║██║  ██║   ██║   ██║ █╗ ██║█████╗  ███████║█████╔╝ ███████╗%reset%
-echo %magenta%%bold%    ██╔══██╗██╔══██║██╔═══╝ ██║██║  ██║   ██║   ██║███╗██║██╔══╝  ██╔══██║██╔═██╗ ╚════██║%reset%
-echo %magenta%%bold%    ██║  ██║██║  ██║██║     ██║██████╔╝   ██║   ╚███╔███╔╝███████╗██║  ██║██║  ██╗███████║%reset%
-echo %magenta%%bold%    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝    ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝%reset%
+echo %gray%  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗%reset%
+echo %magenta%%bold%  ║                         R A P I D T W E A K S  //  TERMINAL EDITION                         ║%reset%
+echo %gray%  ║──────────────────────────────────────────────────────────────────────────────────────────────║%reset%
+echo %magenta%%bold%  ║       ██████╗  █████╗ ██████╗ ██╗██████╗ ████████╗██╗    ██╗███████╗ █████╗ ██╗  ██╗      ║%reset%
+echo %magenta%%bold%  ║       ██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗╚══██╔══╝██║    ██║██╔════╝██╔══██╗██║ ██╔╝      ║%reset%
+echo %magenta%%bold%  ║       ██████╔╝███████║██████╔╝██║██║  ██║   ██║   ██║ █╗ ██║█████╗  ███████║█████╔╝       ║%reset%
+echo %magenta%%bold%  ║       ██╔══██╗██╔══██║██╔═══╝ ██║██║  ██║   ██║   ██║███╗██║██╔══╝  ██╔══██║██╔═██╗       ║%reset%
+echo %magenta%%bold%  ║       ██║  ██║██║  ██║██║     ██║██████╔╝   ██║   ╚███╔███╔╝███████╗██║  ██║██║  ██╗      ║%reset%
+echo %magenta%%bold%  ║       ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝    ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝      ║%reset%
+echo %gray%  ╠═══════════════════════════════[ TWEAKING UTILITY v1.0 ^| EXTREME EDITION ]═══════════════════════╣%reset%
+echo %white%  ║  %cyan%[01]%reset% general system optimizations       %cyan%[02]%reset% power optimizations                       ║%reset%
+echo %white%  ║  %cyan%[03]%reset% keyboard and mouse                 %cyan%[04]%reset% gpu optimizations                         ║%reset%
+echo %white%  ║  %cyan%[05]%reset% cpu optimizations                  %cyan%[06]%reset% pc clean                                  ║%reset%
+echo %white%  ║  %cyan%[07]%reset% system debloat                     %cyan%[08]%reset% storage optimizations                     ║%reset%
+echo %white%  ║  %cyan%[09]%reset% memory optimizations               %cyan%[10]%reset% additional / qol                          ║%reset%
+echo %white%  ║  %cyan%[11]%reset% uninstall useless apps             %cyan%[12]%reset% network optimizations                     ║%reset%
+echo %gray%  ╠═══════════════════════════════════[ SYSTEM ACTIONS ]═════════════════════════════════════════════╣%reset%
+echo %white%  ║  %yellow%[A]%reset% apply all tweaks at once          %yellow%[R]%reset% create restore point                     %red%[X]%reset% exit  ║%reset%
+echo %gray%  ╠══════════════════════════════════════════════════════════════════════════════════════════════╣%reset%
+echo %gray%  ║  STATUS: %green%READY%reset%%gray%  •  Administrator session required  •  Select a module to continue             ║%reset%
+echo %gray%  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝%reset%
 echo.
-echo %cyan%                        tweaking utility  v1.0  ^|  extreme edition%reset%
-echo %gray%                   ──────────────────────────────────────────────────%reset%
-echo.
-echo %white%   %cyan%[1]%reset% general system optimizations    %cyan%[2]%reset% power optimizations
-echo %white%   %cyan%[3]%reset% keyboard and mouse              %cyan%[4]%reset% gpu optimizations
-echo %white%   %cyan%[5]%reset% cpu optimizations               %cyan%[6]%reset% pc clean
-echo %white%   %cyan%[7]%reset% system debloat                  %cyan%[8]%reset% storage optimizations
-echo %white%   %cyan%[9]%reset% memory optimizations            %cyan%[10]%reset% additional / qol
-echo %white%   %cyan%[11]%reset% uninstall useless apps         %cyan%[12]%reset% network optimizations
-echo.
-echo %gray%   ──────────────────────────────────────────────────────────────────%reset%
-echo %white%   %yellow%[A]%reset% apply all tweaks at once        %yellow%[R]%reset% create restore point
-echo %white%   %red%[X]%reset% exit
-echo %gray%   ──────────────────────────────────────────────────────────────────%reset%
-echo.
-set /p "choice=%cyan%  > select option: %reset%"
+set /p "choice=%cyan%  ╰─^> select option: %reset%"
 
 if /i "%choice%"=="1"  goto :general_system
 if /i "%choice%"=="2"  goto :power_opts
@@ -81,10 +82,28 @@ goto :main_menu
 :: ============================================================
 :section_header
 cls
+set "section_title=%~1"
+call :pad_right section_title 74
 echo.
-echo %magenta%%bold%  rapidtweaks%reset% %cyan%^>%reset% %white%%bold%%~1%reset%
-echo %gray%  ──────────────────────────────────────────────────────────────────%reset%
+echo %gray%  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗%reset%
+echo %magenta%%bold%  ║  RAPIDTWEAKS%reset% %cyan%//%reset% %white%%bold%!section_title!%reset%║
+echo %gray%  ╠══════════════════════════════════════════════════════════════════════════════════════════════╣%reset%
+echo %gray%  ║  STATUS: %cyan%MODULE LOADED%reset%%gray%  •  Execute sequence in progress                                      ║%reset%
+echo %gray%  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝%reset%
 echo.
+exit /b
+
+
+:: helper - fixed-width text for terminal panels
+:pad_right
+setlocal enabledelayedexpansion
+set "value=!%~1!"
+:pad_right_loop
+if not "!value:~%~2,1!"=="" goto :pad_right_done
+set "value=!value! "
+goto :pad_right_loop
+:pad_right_done
+endlocal & set "%~1=%value%"
 exit /b
 
 
@@ -93,10 +112,13 @@ exit /b
 :: ============================================================
 :done_msg
 echo.
-echo %green%  [done]%reset% tweaks applied successfully.
-echo %gray%  a restart is recommended for all changes to take effect.%reset%
+echo %gray%  ╔══════════════════════════════════════[ OPERATION COMPLETE ]═════════════════════════════════════╗%reset%
+echo %green%  ║  ✓ DONE%reset% %white%tweaks applied successfully.                                                           %gray%║%reset%
+echo %gray%  ║  A restart is recommended for all changes to take effect.                                  ║%reset%
+echo %gray%  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝%reset%
 echo.
-pause
+echo %gray%  [ press any key to return to the main menu ]%reset%
+pause >nul
 goto :main_menu
 
 
